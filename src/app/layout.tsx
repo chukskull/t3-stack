@@ -1,3 +1,4 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
@@ -25,7 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
         <TRPCReactProvider cookies={cookies().toString()}>
+          <ClerkProvider>
           {children}
+        </ClerkProvider>
         </TRPCReactProvider>
       </body>
     </html>
